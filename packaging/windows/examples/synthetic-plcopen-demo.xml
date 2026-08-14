@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.plcopen.org/xml/tc6_0200">
+  <fileHeader companyName="Synthetic Demo" productName="Industrial XML Fingerprint"/>
+  <contentHeader name="demo-project"/>
+  <types>
+    <pous>
+      <pou name="DemoProgram" pouType="program">
+        <body><ST><xhtml xmlns="http://www.w3.org/1999/xhtml">Counter := Counter + 1;</xhtml></ST></body>
+      </pou>
+    </pous>
+  </types>
+  <instances><configurations/></instances>
+</project>

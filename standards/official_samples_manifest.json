@@ -1,0 +1,134 @@
+{
+  "manifest_version": "1.0.0",
+  "retrieval_date": "2026-08-14",
+  "samples": [
+    {
+      "sample_id": "iec61131_10_official_example",
+      "evidence_level": "official_machine_readable_artifact",
+      "retrieval_date": "2026-08-14",
+      "source_page_url": "https://www.plcopen.org/standards/xml-echange/code-components/",
+      "artifact_url": "https://www.plcopen.org/download_file/force/0df46fd9-5dc4-40a9-9bcf-bee135b1c253/342/",
+      "artifact": {
+        "type": "zip",
+        "filename": "iec61131_10_code_components.zip",
+        "size_bytes": 17274,
+        "max_download_bytes": 1048576,
+        "sha256": "154EFD2F9159A96C1C36688541256060361F60E5D6DC3932BA749F09E502F992"
+      },
+      "validation_input": {
+        "type": "zip_member",
+        "member": "IEC61131_10_Ed1_0_Example.xml",
+        "size_bytes": 51734,
+        "max_uncompressed_bytes": 1048576,
+        "max_compression_ratio": 200,
+        "sha256": "EF4499ADAC4B198AC3191C8E17C586BCF489C6C4D7C6644B0846B972624BB8B5"
+      },
+      "expected_profiles": [{"profile": "IEC61131-10", "minimum_similarity": 56}],
+      "negative_guards": [{"profile": "PLCopen-TC6", "maximum_similarity_exclusive": 25}],
+      "claim_limitation": "Official machine-readable example fingerprint validation; this is not XSD conformance validation."
+    },
+    {
+      "sample_id": "automationml_official_example",
+      "evidence_level": "official_machine_readable_artifact",
+      "retrieval_date": "2026-08-14",
+      "source_page_url": "https://www.automationml.org/about-automationml/specifications/",
+      "artifact_url": "https://www.automationml.org/wp-content/uploads/2021/07/Chapter-2-Example-Models-1.1.aml_.zip",
+      "artifact": {
+        "type": "zip",
+        "filename": "automationml_examples.zip",
+        "size_bytes": 31101,
+        "max_download_bytes": 1048576,
+        "sha256": "1A7342A12E270CD969741A6365CB6241547F0D2511507ACE0F8E4EAE9F0D3CE9"
+      },
+      "validation_input": {
+        "type": "zip_member",
+        "member": "Chapter 2 - Example Models 1.1.aml",
+        "size_bytes": 426988,
+        "max_uncompressed_bytes": 1048576,
+        "max_compression_ratio": 200,
+        "sha256": "AFF498E6BEEE230E9CAA321E2DA60514D3B646AFCE959AD86E8A73DAE546E1F7"
+      },
+      "expected_profiles": [{"profile": "AutomationML-CAEX", "minimum_similarity": 100}],
+      "negative_guards": [
+        {"profile": "IEC61131-10", "maximum_similarity_exclusive": 25},
+        {"profile": "PLCopen-TC6", "maximum_similarity_exclusive": 25}
+      ],
+      "claim_limitation": "Official machine-readable example fingerprint validation; this is not CAEX schema conformance validation."
+    },
+    {
+      "sample_id": "omg_xmi_official_model",
+      "evidence_level": "official_machine_readable_artifact",
+      "retrieval_date": "2026-08-14",
+      "source_page_url": "https://www.omg.org/spec/XMI/2.5.1",
+      "artifact_url": "https://www.omg.org/spec/XMI/20131001/XMI-model.xmi",
+      "artifact": {
+        "type": "direct_file",
+        "filename": "XMI-model.xmi",
+        "size_bytes": 13551,
+        "max_download_bytes": 1048576,
+        "sha256": "B7F3773333DD52B82380044CFD315101866788C5C7A0500FEF3CADBA815FDE0E"
+      },
+      "validation_input": {
+        "type": "artifact",
+        "size_bytes": 13551,
+        "sha256": "B7F3773333DD52B82380044CFD315101866788C5C7A0500FEF3CADBA815FDE0E"
+      },
+      "expected_profiles": [{"profile": "XMI-EMF", "minimum_similarity": 63}],
+      "negative_guards": [
+        {"profile": "IEC61131-10", "maximum_similarity_exclusive": 25},
+        {"profile": "PLCopen-TC6", "maximum_similarity_exclusive": 25}
+      ],
+      "claim_limitation": "Official OMG machine-readable model fingerprint validation; this is not metamodel or schema conformance validation."
+    },
+    {
+      "sample_id": "opc_ua_normative_nodeset",
+      "evidence_level": "official_normative_file",
+      "retrieval_date": "2026-08-14",
+      "source_page_url": "https://github.com/OPCFoundation/UA-Nodeset/tree/latest/TestModel",
+      "artifact_url": "https://raw.githubusercontent.com/OPCFoundation/UA-Nodeset/latest/TestModel/TestModel.NodeSet2.xml",
+      "artifact": {
+        "type": "direct_file",
+        "filename": "TestModel.NodeSet2.xml",
+        "size_bytes": 131722,
+        "max_download_bytes": 2097152,
+        "sha256": "EF7DFAEC6DBFD61EEA5293D55EA039E14E4FA6CECD45FE6744A77E035F1F5D9F"
+      },
+      "validation_input": {
+        "type": "artifact",
+        "size_bytes": 131722,
+        "sha256": "EF7DFAEC6DBFD61EEA5293D55EA039E14E4FA6CECD45FE6744A77E035F1F5D9F"
+      },
+      "expected_profiles": [{"profile": "OPC-UA-NodeSet", "minimum_similarity": 50}],
+      "negative_guards": [
+        {"profile": "IEC61131-10", "maximum_similarity_exclusive": 25},
+        {"profile": "PLCopen-TC6", "maximum_similarity_exclusive": 25}
+      ],
+      "claim_limitation": "Official OPC Foundation normative NodeSet fingerprint validation. The latest branch URL is mutable; the expected SHA-256 freezes the retrieved bytes. This is not NodeSet schema conformance validation."
+    },
+    {
+      "sample_id": "plcopen_tc6_published_excerpt",
+      "evidence_level": "official_published_excerpt",
+      "retrieval_date": "2026-08-14",
+      "source_page_url": "https://www.plcopen.org/standards/xml-echange/",
+      "artifact_url": "https://www.plcopen.org/download_file/force/df0925d6-8953-4d87-a12d-f603ad25ddc6/342/",
+      "artifact": {
+        "type": "pdf_source",
+        "filename": "plcopen_tc6_201_technical.pdf",
+        "size_bytes": 508440,
+        "max_download_bytes": 2097152,
+        "sha256": "446DFB76BFB5E864908F9594820FDFD2A436073783A8B8CF3465100D17610209"
+      },
+      "validation_input": {
+        "type": "bundled_fixture",
+        "resource": "fixtures/plcopen_tc6_0200_page63.xml",
+        "printed_page": "63/80",
+        "pdf_page_index_zero_based": 62,
+        "size_bytes": 875,
+        "sha256": "088A865B3832A20CC5F5DCB4BAA57420335920E2ADD9EBC8873663B2E07CCC15"
+      },
+      "expected_profiles": [{"profile": "PLCopen-TC6", "minimum_similarity": 50}],
+      "negative_guards": [{"profile": "IEC61131-10", "maximum_similarity_exclusive": 25}],
+      "claim_limitation": "Small XML example transcribed from printed page 63/80 of the official PLCopen TC6 2.01 Technical Document. It is an official published excerpt, not an official downloadable instance artifact and not XSD conformance validation."
+    }
+  ]
+}

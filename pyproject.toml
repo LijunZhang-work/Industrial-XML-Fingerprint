@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "industrial-xml-fingerprint"
+version = "0.1.0"
+description = "Streaming, sanitized industrial XML standard fingerprint detector"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+xml-fingerprint = "xml_fingerprint.cli:main"
+
+[tool.setuptools]
+packages = ["xml_fingerprint", "standards", "standards.fixtures"]
+
+[tool.setuptools.package-data]
+standards = ["registry.json", "official_samples_manifest.json", "fixtures/*.xml"]

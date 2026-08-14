@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.plcopen.org/xml/tc6_0200"
+xmlns:ns1="http://www.plcopen.org/xml/tc6.xsd"
+xmlns:xhtml="http://www.w3.org/1999/xhtml"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.plcopen.org/xml/tc6_0200 http://www.plcopen.org/xml/tc6_0200">
+ <!--Information about the creation of the file-->
+ <fileHeader  companyName ="plcopen"
+   creationDateTime ="2008-11-04T18:20:00"
+   productName ="plcopen"
+   productVersion ="2"/>
+ <contentHeader name="prj">
+  <!--Basis for coordination systems-->
+  <coordinateInfo>
+   <fbd>
+    <scaling x="8" y="8"/>
+   </fbd>
+   <ld>
+    <scaling x="8" y="8"/>
+   </ld>
+   <sfc>
+    <scaling x="8" y="8"/>
+   </sfc>
+  </coordinateInfo>
+ </contentHeader>
+ <types>
+  <dataTypes/>
+  <pous/>
+ </types>
+ <instances>
+  <configurations/>
+ </instances>
+</project>

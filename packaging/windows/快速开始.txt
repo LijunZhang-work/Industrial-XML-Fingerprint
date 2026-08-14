@@ -1,0 +1,35 @@
+Industrial XML Fingerprint v0.1.0 —— Windows x64 免安装版
+=========================================================
+
+1. 请先把整个 ZIP 完整解压，不要直接在压缩包预览窗口里运行。
+2. 最简单的用法：把一个 XML 文件拖到 scan-xml.cmd 上。
+3. 也可以双击 scan-xml.cmd，粘贴 XML 文件的完整路径后按回车。
+4. 扫描结果保存在本目录的 reports\文件名\ 下；主报告是 fingerprint_report.json。
+5. 想先试用，可双击 scan-example.cmd。examples 中只是项目自制的合成示例，不是官方标准完整样本。
+
+无需安装 Python，也无需联网。普通 scan 不访问 XML 中写到的 URL。
+
+命令行用法
+----------
+xml-fingerprint.cmd --version
+xml-fingerprint.cmd scan "C:\path\project.xml" --profiles all --out "C:\path\report"
+xml-fingerprint.cmd explain "C:\path\report\fingerprint_report.json" --profile PLCopen
+xml-fingerprint.cmd --help
+
+返回码
+------
+0  成功
+1  官方样本离线校验未通过（只适用于显式 samples validate）
+2  参数、输入文件或 XML 安全/格式错误
+
+隐私与安全边界
+--------------
+报告默认脱敏，不写入 XML 正文、属性值、原文件名或完整路径。
+工具拒绝 DOCTYPE/外部实体；普通 scan 不联网。
+如需下载官方样本，必须显式运行 samples fetch。下载缓存不随本发布包分发。
+
+版本与第三方运行时
+------------------
+本包内置 Python 3.12.10 Windows x64 embeddable runtime，其许可证文件位于 runtime\LICENSE.txt。
+THIRD_PARTY_NOTICES.txt 只说明内置 Python runtime 的来源和许可，不授予本工具源码任何许可证；
+本工具源码许可由仓库所有者另行决定。

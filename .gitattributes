@@ -1,0 +1,3 @@
+standards/fixtures/*.xml text eol=lf
+standards/*.json text eol=lf
+

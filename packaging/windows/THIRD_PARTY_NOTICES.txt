@@ -1,0 +1,13 @@
+Third-party runtime notice
+==========================
+
+This portable package includes the official CPython 3.12.10 Windows x64
+embeddable runtime downloaded from:
+
+https://www.python.org/ftp/python/3.12.10/python-3.12.10-embed-amd64.zip
+
+The CPython license and copyright notices are preserved in runtime\LICENSE.txt.
+
+This notice applies only to the bundled Python runtime. It does not grant a
+license for the Industrial XML Fingerprint source code or other project files;
+the repository owner determines the licensing of this tool separately.
