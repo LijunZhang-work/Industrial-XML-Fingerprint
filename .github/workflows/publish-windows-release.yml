@@ -2,8 +2,16 @@ name: Publish Windows portable release
 
 on:
   push:
+    branches:
+      - main
     tags:
       - "v*"
+    paths:
+      - ".github/workflows/publish-windows-release.yml"
+      - "pyproject.toml"
+      - "release/*.zip"
+      - "release/*.sha256"
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -18,20 +26,17 @@ jobs:
       - name: Verify version and release artifacts
         shell: pwsh
         env:
-          RELEASE_REF: ${{ github.ref_name }}
+          TRIGGER_REF_NAME: ${{ github.ref_name }}
+          TRIGGER_REF_TYPE: ${{ github.ref_type }}
         run: |
-          $tag = $env:RELEASE_REF
-          if (-not $tag.StartsWith('v')) {
-            throw "Release tag must start with v."
-          }
-
-          $version = $tag.Substring(1)
           $pyproject = Get-Content -LiteralPath 'pyproject.toml' -Raw
           $versionMatch = [regex]::Match($pyproject, '(?m)^version\s*=\s*"([^"]+)"')
           if (-not $versionMatch.Success) {
             throw "Could not read the project version from pyproject.toml."
           }
-          if ($versionMatch.Groups[1].Value -ne $version) {
+          $version = $versionMatch.Groups[1].Value
+          $tag = "v$version"
+          if ($env:TRIGGER_REF_TYPE -eq 'tag' -and $env:TRIGGER_REF_NAME -ne $tag) {
             throw "Tag version does not match pyproject.toml."
           }
 
@@ -54,11 +59,33 @@ jobs:
           "RELEASE_ZIP=$zipPath" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
           "RELEASE_SHA=$shaPath" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
+      - name: Create the version tag when publishing from main
+        if: github.ref_type != 'tag'
+        shell: pwsh
+        run: |
+          git fetch --tags --force
+          $existingCommit = & git rev-list -n 1 $env:RELEASE_TAG 2>$null
+          if ($LASTEXITCODE -eq 0) {
+            if ($existingCommit -ne $env:GITHUB_SHA) {
+              throw "The release tag already exists at a different commit; bump the project version."
+            }
+            exit 0
+          }
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git tag -a $env:RELEASE_TAG -m "Industrial XML Fingerprint $env:RELEASE_TAG" $env:GITHUB_SHA
+          git push origin "refs/tags/$env:RELEASE_TAG"
+
       - name: Create GitHub Release and upload verified assets
         shell: pwsh
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          if (gh release view $env:RELEASE_TAG --repo $env:GITHUB_REPOSITORY *> $null) {
+            Write-Host "Release $env:RELEASE_TAG already exists; no changes were made."
+            exit 0
+          }
           gh release create $env:RELEASE_TAG $env:RELEASE_ZIP $env:RELEASE_SHA `
             --repo $env:GITHUB_REPOSITORY `
             --title "Industrial XML Fingerprint $env:RELEASE_TAG" `
