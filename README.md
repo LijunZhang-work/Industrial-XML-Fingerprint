@@ -16,7 +16,7 @@
 
 ### Windows 免安装版
 
-下载 `Industrial-XML-Fingerprint-v0.1.0-windows-x64.zip` 后完整解压。无需安装 Python：双击 `scan-xml.cmd` 后粘贴 XML 路径，或直接把 XML 文件拖到该入口上；报告写入解压目录下的 `reports`。发布包还附带中文 `快速开始.txt` 和不含官方完整样本的合成示例。`release/Industrial-XML-Fingerprint-v0.1.0-windows-x64.zip.sha256` 可用于核对下载完整性。
+从 [GitHub Releases 下载 Windows x64 免安装版](https://github.com/LijunZhang-work/Industrial-XML-Fingerprint/releases/latest/download/Industrial-XML-Fingerprint-v0.1.0-windows-x64.zip) 后完整解压。无需安装 Python：双击 `scan-xml.cmd` 后粘贴 XML 路径，或直接把 XML 文件拖到该入口上；报告写入解压目录下的 `reports`。发布包还附带中文 `快速开始.txt` 和不含官方完整样本的合成示例；同一 Release 中的 `.sha256` 文件可用于核对下载完整性。
 
 维护者可在 Windows PowerShell 中运行 `scripts/build_windows_portable.ps1` 重建发布包。构建脚本只下载 Python 官方 Windows embeddable runtime，并在解包前强制复验固定 SHA-256；不会下载或打包官方 XML 完整样本。
 
